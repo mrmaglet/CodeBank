@@ -2,19 +2,20 @@ import React from "react"
 import styled from "styled-components"
 import { Code } from "../Code"
 
-interface StyleProps {
-  $primary?: boolean
+interface StyledProps {
+  primary?: boolean
 }
 
-const Button = styled.button<StyleProps>`
-  background: ${(props) => (props.$primary ? "#045699" : "#808080")};
+const Button = styled.button<StyledProps>`
+  background: ${(props) => (props.primary ? "#045699" : "#808080")};
+  color: white;
 `
 
 const Props = () => {
   return (
     <>
       <Button>Normal button</Button>
-      <Button $primary>Primary button</Button>
+      <Button primary>Primary button</Button>
 
       {code()}
     </>
@@ -24,11 +25,31 @@ const Props = () => {
 const code = () => {
   return (
     <Code
-      code={`
-				
+      code={`\
+import React from "react"
+import styled from "styled-components"
+import { Code } from "../Code"
 
+interface StyledProps {
+  primary?: boolean
+}
 
-				`}
+const Button = styled.button<StyledProps>\`
+  background: \${(props) => (props.primary ? "#045699" : "#808080")};
+  color: white;
+\`
+
+const Props = () => {
+return (
+  <>
+    <Button>Normal button</Button>
+    <Button primary>Primary button</Button>
+
+    {code()}
+  </>
+)
+}
+  `}
     />
   )
 }
