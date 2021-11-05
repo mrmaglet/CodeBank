@@ -24,8 +24,8 @@ const Props = () => {
 
 const code = () => {
   return (
-    <Code
-      code={`\
+    <Code>
+      {`
 import React from "react"
 import styled from "styled-components"
 import { Code } from "../Code"
@@ -50,7 +50,7 @@ return (
 )
 }
   `}
-    />
+    </Code>
   )
 }
 
