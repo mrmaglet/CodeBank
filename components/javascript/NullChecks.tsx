@@ -2,6 +2,18 @@ import React from "react"
 import { Code } from "../Code"
 import { Container } from "../layout/Container"
 
+const doSomething = (val: any) => {
+  console.log("VAL: ", val)
+}
+
+const nonEmptyobj = { name: "Bar" }
+if (Object.keys(nonEmptyobj).length) console.log("I have at least one obj key")
+
+const value: any = { shit: "undefined" }
+
+value.length && doSomething(value)
+console.log("LEngth: ", value.length)
+
 const NullChecks = () => {
   // Nullchecks
 
@@ -18,6 +30,11 @@ const NullChecks = () => {
     name: "Magnus",
   }
 
+  const emptyArr: any = []
+  if (emptyArr) {
+    console.log("My empty arr is truthy")
+    // emptyArr[0].toUpperCase()
+  }
   // const myString
 
   const validate = (toValidate = "MJAU") => {
@@ -112,11 +129,25 @@ const NullChecks = () => {
         if (Infinity)
         if (-Infinity)`}
       </Code>
+      <h3>Checks and cause gards</h3>
+      Common pattern to check for empty value before making any operations on a variable
+      like toUppercase().
+      <Code>
+        {`if (value) {
+          // Run if truthy. 
+          // Check before making operations that would crash runing values like undefined. 
+          // Be aware that truthy values like empty arrays and objects are concidered true {} []
+        }
+        if (!value) {
+          // Run if falsy (for cause gards etc with early exit - one line return
+          // Be aware that falsy values "", 0 etc is concidered false. 
+          }  `}
+      </Code>
       <h3>Null checks</h3>
       <strong>
         <em>The null value is not loosely equal to any of the other falsy values</em>
       </strong>{" "}
-      except undefined and null itself .
+      except undefined and null itself.
       <Code>
         {`The value of data is:  null
           data == 0 false
@@ -127,22 +158,71 @@ const NullChecks = () => {
           data==NaN false
           data=="" false`}
       </Code>
+      <h2>Not dealing with null</h2>
+      <p>I try to avoid returning null in favor of:</p>
+      <ul>
+        <li>returning a default object instead of null</li>
+        <li>throwing an error instead of returning null</li>
+      </ul>
       <h3>Nullish coalescing operator (??)</h3>
+      <h2>Conditional (ternary) operator</h2>
+      Ternary means threesome and takes three operands. Compare truthy and falsly values.
+      This operator is frequently used as a shortcut for the if statement.
+      <h2>Short-circuit evaluation</h2>
+      <ul>
+        <li>Logical expressions are evaluated left to right.</li>
+        <li>Compare with truthy and falsely</li>
+      </ul>
+      <Code raw trim>
+        {`
+             price && Amount>{price} kr</Amount>
+             value.length > 0 && doSomething(value)
+             
+            `}
+      </Code>
+      <h2>Check arrays</h2>
+      <p>
+        A good way to check an array is empty or not is with length. As long as an array
+        has any elements it concidered a length - even if the value itself is undefined.
+      </p>
+      <p>Remember that an empty array [] is truthy. </p>
       <Code>
-        {`if (value) console.log("Run if true. Check before making operations that would crash runing values like undefined. For example .toUppercase()")
-        if (!value) console.log("Run if false (for cause gards etc with early exit)")
+        {`
+          const arr = [undefined]
+          console.log(arr.length) // 1 (truthy) 
         `}
+      </Code>
+      <h2>Check for empty object</h2>
+      <p>An object has no length property. Instead count the key. IE9 and above. </p>
+      <Code>
+        {`const obj = {name: "Foo"}
+  if (Object.keys(obj).length) console.log("I have at least one property")`}
+      </Code>
+      <p>
+        If we stringify the object and the result is simply an opening and closing
+        bracket, we know the object is empty.
+      </p>
+      <Code>
+        {`
+        function isEmptyObject(obj){
+            return JSON.stringify(obj) === '{}';
+        }`}
+      </Code>
+      <p>Using Underscore and Lodash</p>
+      <Code>
+        {`
+        _.isEmpty(obj)`}
       </Code>
       <h3>Nullish coalescing operator (??)</h3>
       <h3>
         När går en default in i ett argument? function hej (price = 0) //Vilket värde
         overridar default 0?
-        <Code>
-          {`const validate = (toValidate = "MJAU") => {
+      </h3>
+      <Code>
+        {`const validate = (toValidate = "MJAU") => {
     // Sets toValidate parameter to MJAU ONLY in the argument is undefined.
     console.log("tovalidate: ", toValidate)}`}
-        </Code>
-      </h3>
+      </Code>
     </>
   )
 }
