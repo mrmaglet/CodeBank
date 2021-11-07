@@ -1,9 +1,32 @@
 html,
 body {
   padding: 0;
+  color: #3e3e3e;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  line-height: 1.6em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #4c5b85;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  margin: 2em 0 0.4em;
+}
+
+h3 {
+  margin: 2em 0 0.4em;
 }
 
 a {

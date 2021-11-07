@@ -1,86 +1,8 @@
 import React from "react"
 import { Code } from "../Code"
-import { Container } from "../layout/Container"
-
-const doSomething = (val: any) => {
-  console.log("VAL: ", val)
-}
-
-const nonEmptyobj = { name: "Bar" }
-if (Object.keys(nonEmptyobj).length) console.log("I have at least one obj key")
-
-const value: any = { shit: "undefined" }
-
-value.length && doSomething(value)
-console.log("LEngth: ", value.length)
+import { Mark } from "../layout/Mark"
 
 const NullChecks = () => {
-  // Nullchecks
-
-  const falsy = ""
-  const truty = 4
-  const value = undefined
-
-  // if (falsy) console.log("Run if true")
-  // if (!value) console.log("Run if false (for cause gards etc with early exit)")
-
-  if (value) alert("mu")
-
-  const obj = {
-    name: "Magnus",
-  }
-
-  const emptyArr: any = []
-  if (emptyArr) {
-    console.log("My empty arr is truthy")
-    // emptyArr[0].toUpperCase()
-  }
-  // const myString
-
-  const validate = (toValidate = "MJAU") => {
-    // Sets toValidate parameter to MJAU ONLY in the argument is undefined.
-    console.log("tovalidate: ", toValidate)
-  }
-
-  const test: any = NaN
-  validate(test)
-
-  let price: any = 0
-  console.log("price is 0")
-  if (!price) console.error("!price")
-  if (price) console.error("price")
-  if (price == null) console.error("price == null")
-
-  console.log("########################")
-
-  price = null
-  console.log("price is null")
-  if (!price) console.error("!price")
-  if (price) console.error("price")
-  if (price == null) console.error("price == null")
-
-  console.log("########################")
-
-  price = undefined
-  console.log("price is undefined")
-  if (!price) console.error("!price")
-  if (price) console.error("price")
-  if (price == null) console.error("price == null")
-
-  //console.log(obj.city?.toUpperCase() && "FUCK")
-
-  const validator = undefined
-
-  //console.info(validator && "SHIT")
-
-  //validator && console.log(validator.toString().toUpperCase())
-  //if (validator) console.log(validator.toString().toUpperCase())
-
-  //validator || console.log(validator.toString().toUpperCase() + ".")
-  //if (!validator) console.log(validator.toString().toUpperCase() + ".")
-
-  // console.log(validator?.toString().toUpperCase() + ".")
-
   return (
     <>
       <h3>Falsy</h3>
@@ -145,9 +67,14 @@ const NullChecks = () => {
       </Code>
       <h3>Null checks</h3>
       <strong>
-        <em>The null value is not loosely equal to any of the other falsy values</em>
+        <em>
+          The null (or undefined) value is not loosely equal to any of the other falsy
+          values
+        </em>
       </strong>{" "}
       except undefined and null itself.
+      <Code>{`if (price == null) console.log("Price is either null or undefined (nullish)")
+      if (price == undefined) console.log("Price is either null or undefined (nullish)")`}</Code>
       <Code>
         {`The value of data is:  null
           data == 0 false
@@ -159,27 +86,119 @@ const NullChecks = () => {
           data=="" false`}
       </Code>
       <h2>Not dealing with null</h2>
-      <p>I try to avoid returning null in favor of:</p>
+      <p>Try to avoid returning null in favor of:</p>
       <ul>
         <li>returning a default object instead of null</li>
         <li>throwing an error instead of returning null</li>
       </ul>
-      <h3>Nullish coalescing operator (??)</h3>
       <h2>Conditional (ternary) operator</h2>
-      Ternary means threesome and takes three operands. Compare truthy and falsly values.
-      This operator is frequently used as a shortcut for the if statement.
+      <p>
+        Ternary means threesome and takes three operands. This operator is frequently used
+        as a shortcut for the if statement.
+      </p>
+      <p>Compare truthy and falsly values.</p>
+      <Code raw trim>
+        {`$price ? \`{$price kr}\` : "Free"  
+          $active ? "active-class" : ""  `}
+      </Code>
       <h2>Short-circuit evaluation</h2>
       <ul>
         <li>Logical expressions are evaluated left to right.</li>
-        <li>Compare with truthy and falsely</li>
+        <li>This compares with truthy and falsely</li>
       </ul>
       <Code raw trim>
-        {`
-             price && Amount>{price} kr</Amount>
-             value.length > 0 && doSomething(value)
-             
-            `}
+        {`price && <Amount>{price}</Amount> 
+        // The same as: 
+        if (price) bli blo bla
+
+        arr.length && doSomething(arr) 
+        // The same as: 
+        if (arr.length) doSomething(arr)`}
       </Code>
+      <p>And the or sign checks for falsy</p>
+      <Code raw trim>
+        {`name || <Form>Please enter your missing name</Form>
+        // The same as: if (!name) <Form> ... 
+        
+        const name = res.name || "No name found" 
+        // The same as: if (!res.name) name = "No name found"`}
+      </Code>
+      <h2>Nullish coalescing operator (??)</h2>
+      {
+        <p>
+          {`The new Nullish coalescing operator (??) works like ||, but it only returns the
+        second expression, when the first one is "nullish", i.e. null or undefined.`}
+        </p>
+      }
+      <p>
+        {`It is thus the better alternative to provide defaults, when values like "" or 0
+        are valid values for the first expression, too.`}
+      </p>
+      <Code raw trim>
+        {`price ?? console.log("Price")<Amount<Form>Please enter your missing name</Form>
+        // The same as: if (!name) <Form> ... 
+        
+        const name = res.name || "No name found" 
+        // The same as: if (!res.name) name = "No name found"`}
+      </Code>
+      <h2>Optional chaining (?.)</h2>
+      <p>
+        The optional chaining operator (?.) enables you to read the value of a property
+        located deep within a chain of connected objects without having to check that each
+        reference in the chain is valid.
+      </p>
+      <p>
+        The ?. operator is like the . chaining operator, except that instead of causing an
+        error if a reference is <Mark>nullish</Mark> (null or undefined), the expression
+        short-circuits with a <Mark>return</Mark> value of undefined. When used with
+        function calls, it <Mark>returns</Mark>
+        undefined if the given function does not exist.
+      </p>
+      <Code>
+        {`const adventurer = {
+          name: "Alice",
+          cat: {
+            name: "Dinah"
+          }
+        }
+
+        const dogName = adventurer.dog?.name
+        console.log(dogName);
+        // expected output: undefined
+
+        // Note: The above is the same as: adventure.dog && adventure.dog.name
+
+        console.log(adventurer.someNonExistentMethod?.());
+        // expected output: undefined
+        `}
+      </Code>
+      <h3>Dealing with optional callbacks or event handlers</h3>
+      <p>
+        If you use callbacks or fetch methods from an object with a destructuring
+        assignment, you may have non-existent values that you cannot call as functions
+        unless you have tested their existence. Using ?., you can avoid this extra test:
+      </p>
+      <Code>{`catch (err) {
+          if (onError) { // Testing if onError really exists
+            onError(err.message);
+          }
+        }
+
+        // Width optional chaining:
+        catch (err) {
+          onError?.(err.message); // no exception if onError is undefined
+  }`}</Code>
+      <h3>Combining with the nullish coalescing operator</h3>
+      <p>
+        The nullish coalescing operator may be used after optional chaining in order to
+        build a default value when none was found:
+      </p>
+      <Code>{`let customer = {
+          name: "Carl",
+          details: { age: 82 }
+        };
+        const customerCity = customer?.city ?? "Unknown city";
+        console.log(customerCity); // Unknown city`}</Code>
       <h2>Check arrays</h2>
       <p>
         A good way to check an array is empty or not is with length. As long as an array
@@ -196,7 +215,7 @@ const NullChecks = () => {
       <p>An object has no length property. Instead count the key. IE9 and above. </p>
       <Code>
         {`const obj = {name: "Foo"}
-  if (Object.keys(obj).length) console.log("I have at least one property")`}
+          if (Object.keys(obj).length) console.log("I have at least one property")`}
       </Code>
       <p>
         If we stringify the object and the result is simply an opening and closing
@@ -205,7 +224,7 @@ const NullChecks = () => {
       <Code>
         {`
         function isEmptyObject(obj){
-            return JSON.stringify(obj) === '{}';
+          return JSON.stringify(obj) === '{}';
         }`}
       </Code>
       <p>Using Underscore and Lodash</p>
@@ -213,35 +232,18 @@ const NullChecks = () => {
         {`
         _.isEmpty(obj)`}
       </Code>
-      <h3>Nullish coalescing operator (??)</h3>
-      <h3>
-        När går en default in i ett argument? function hej (price = 0) //Vilket värde
-        overridar default 0?
-      </h3>
+      <h3>Default arguments neither nullish or falsy</h3>
+      Missing arguments are only replaced with default values in the case of{" "}
+      <Mark>undefined.</Mark>
       <Code>
         {`const validate = (toValidate = "MJAU") => {
-    // Sets toValidate parameter to MJAU ONLY in the argument is undefined.
-    console.log("tovalidate: ", toValidate)}`}
+        // Sets toValidate parameter to MJAU ONLY in the argument is undefined.
+        console.log("tovalidate: ", toValidate)}`}
       </Code>
+      <br />
+      <br />
     </>
   )
 }
 
 export { NullChecks }
-
-// . The trap of null
-// null might appear, often unexpectedly, in situations when you expect an object. Then if you try to extract a property from null, JavaScript throws an error.
-
-// Let’s use again greetObject() function and try to access message property from the returned object:
-
-// let who = '';
-// greetObject(who).message;
-// // throws "TypeError: greetObject() is null"
-// Because who variable is an empty string, the function returns null. When accessing message property from null, a TypeError error is thrown.
-
-// You can handle null by either using the optional chaining with nullish coalescing:
-
-// let who = '';
-// greetObject(who)?.message ?? 'Hello, Stranger!';
-// // => 'Hello, Stranger!'
-// or use 2 alternatives described in the next section.

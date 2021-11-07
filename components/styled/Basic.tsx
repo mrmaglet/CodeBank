@@ -11,15 +11,8 @@ const Basic = () => {
     <>
       <Div>Styled DIV</Div>
 
-      {code()}
-    </>
-  )
-}
-
-const code = () => {
-  return (
-    <Code
-      code={`\
+      <Code>
+        {`\
 import React from "react"
 import styled from "styled-components"
 import { Code } from "../Code"
@@ -38,7 +31,8 @@ const Basic = () => {
 
 export { Basic }
 				`}
-    />
+      </Code>
+    </>
   )
 }
 

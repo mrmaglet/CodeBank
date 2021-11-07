@@ -2,6 +2,7 @@ import "../styles/globals.css"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 import type { AppProps } from "next/app"
 import { theme } from "../components/styled/theme"
+import { Container } from "../components/layout/Container"
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -16,7 +17,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <Container>
+          <Component {...pageProps} />
+        </Container>
       </ThemeProvider>
     </>
   )

@@ -11,13 +11,11 @@ const Div = styled.div`
 const Styled = () => {
   return (
     <>
-      <Container>
-        <h1>Basic styled component</h1>
-        <Basic />
+      <h1>Basic styled component</h1>
+      <Basic />
 
-        <h1>Ternary props</h1>
-        <Props />
-      </Container>
+      <h2>Ternary props</h2>
+      <Props />
     </>
   )
 }
