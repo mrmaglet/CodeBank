@@ -17,6 +17,13 @@ const Home: NextPage = () => {
           <Link href="/typescript">TypeScript</Link>
         </li>
       </ul>
+
+      <h2>Todo</h2>
+      <ul>
+        <li>Designpattern loading</li>
+        <li>Designpattern debounce</li>
+        <li>Designpattern error messages</li>
+      </ul>
     </>
   )
 }
