@@ -1,6 +1,5 @@
 import React from "react"
 import { NullChecks } from "../components/javascript/NullChecks"
-import { Container } from "../components/layout/Container"
 
 const TypeScript = () => {
   return (

@@ -1,6 +1,8 @@
 import React from "react"
 import type { NextPage } from "next"
 import Link from "next/link"
+// import { StyledProps } from "../components/materialui/props-to-styled/ImportedStyledProps"
+import { StyledProps } from "../components/materialui/props-to-styled/StyledProps"
 
 const Home: NextPage = () => {
   return (
@@ -17,6 +19,9 @@ const Home: NextPage = () => {
           <Link href="/typescript">TypeScript</Link>
         </li>
       </ul>
+
+      <h1>Content</h1>
+      <StyledProps />
 
       <h2>Todo</h2>
       <ul>
