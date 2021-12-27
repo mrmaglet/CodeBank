@@ -21,6 +21,9 @@ const Home: NextPage = () => {
       </ul>
 
       <h1>Content</h1>
+
+      <h2>Pass dynamic styled props in Material UI</h2>
+
       <StyledProps />
 
       <h2>Todo</h2>
