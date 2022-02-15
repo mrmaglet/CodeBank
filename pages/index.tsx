@@ -3,6 +3,7 @@ import type { NextPage } from "next"
 import Link from "next/link"
 // import { StyledProps } from "../components/materialui/props-to-styled/ImportedStyledProps"
 import { StyledProps } from "../components/materialui/props-to-styled/StyledProps"
+import { StateUpdates } from "../components/react/state-updates/stateUpdate"
 
 const Home: NextPage = () => {
   return (
@@ -25,6 +26,9 @@ const Home: NextPage = () => {
       <h2>Pass dynamic styled props in Material UI</h2>
 
       <StyledProps />
+
+      <h2>React</h2>
+      <StateUpdates />
 
       <h2>Todo</h2>
       <ul>
