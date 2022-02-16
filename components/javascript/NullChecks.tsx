@@ -1,5 +1,5 @@
 import React from "react"
-import { Code } from "../Code"
+import { Code } from "../common/Code"
 import { Mark } from "../layout/Mark"
 
 const NullChecks = () => {

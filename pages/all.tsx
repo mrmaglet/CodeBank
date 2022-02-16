@@ -1,5 +1,5 @@
 import { AllJavascriptContent } from "../components/javascript/AllJavascriptContent"
-import { AllReactContent } from "../components/react/state-updates/AllReactContent"
+import { AllReactContent } from "../components/react/AllReactContent"
 import { AllStyledContent } from "../components/styled/AllStyledContent"
 import { AllTypescriptContent } from "../components/typescript/AllTypescriptContent"
 

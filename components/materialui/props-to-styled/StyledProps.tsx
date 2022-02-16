@@ -17,7 +17,7 @@ import {
   ReusableStyledComponent,
   ReusableStyledComponentPrint,
 } from "./ReusableStyledComponent"
-import { Code } from "../../Code"
+import { Code } from "../../common/Code"
 
 const useStyles = makeStyles({
   extra: {

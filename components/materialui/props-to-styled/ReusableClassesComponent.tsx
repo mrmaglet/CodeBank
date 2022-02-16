@@ -29,7 +29,7 @@ const ReusableClassesComponent = ({
 
 export { ReusableClassesComponent }
 
-import { Code } from "../../Code"
+import { Code } from "../../common/Code"
 
 export const ReusableClassesComponentPrint = () => {
   return (

@@ -34,7 +34,7 @@ const NestedClassComponent = ({ color, ...props }: PropsWithChildren<Props>) => 
 
 export { NestedClassComponent }
 
-import { Code } from "../../Code"
+import { Code } from "../../common/Code"
 
 export const NestedClassComponentPrint = () => {
   return (

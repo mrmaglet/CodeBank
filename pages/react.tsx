@@ -1,4 +1,4 @@
-import { AllReactContent } from "../components/react/state-updates/AllReactContent"
+import { AllReactContent } from "../components/react/AllReactContent"
 
 const ReactPage = () => {
   return <AllReactContent />

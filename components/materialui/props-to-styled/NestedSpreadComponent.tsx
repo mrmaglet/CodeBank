@@ -39,7 +39,7 @@ const NestedSpreadComponent = ({ otherProps, ...cssProps }: any) => {
 
 export { NestedSpreadComponent }
 
-import { Code } from "../../Code"
+import { Code } from "../../common/Code"
 
 export const NestedSpreadComponentPrint = () => {
   return (

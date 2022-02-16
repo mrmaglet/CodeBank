@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Code } from "../Code"
+import { Code } from "../common/Code"
 
 const Div = styled.div`
   color: #f88e03;

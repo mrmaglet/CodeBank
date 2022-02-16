@@ -17,7 +17,7 @@ const ReusableStyledComponent = ({ children, ...props }: PropsWithChildren<Props
 
 export { ReusableStyledComponent }
 
-import { Code } from "../../Code"
+import { Code } from "../../common/Code"
 
 export const ReusableStyledComponentPrint = () => {
   return (

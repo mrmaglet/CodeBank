@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from "react"
 import { Paper, styled, Box, PaperProps } from "@material-ui/core"
-import { Code } from "../../Code"
+import { Code } from "../../common/Code"
 
 interface Props extends PaperProps {
   color: string

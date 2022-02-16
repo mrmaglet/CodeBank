@@ -19,6 +19,9 @@ const Home: NextPage = () => {
         <li>
           <Link href="/typescript">TypeScript</Link>
         </li>
+        <li>
+          <Link href="/react">React</Link>
+        </li>
       </ul>
 
       <h1>Content</h1>
