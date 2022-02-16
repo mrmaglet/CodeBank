@@ -1,5 +1,5 @@
 import React from "react"
-import { useStateUpdate } from "./useStateUpdate-2"
+import { useStateUpdate } from "./useStateUpdate"
 
 const StateUpdates = () => {
   const { validate, isValid, errorMessage } = useStateUpdate()

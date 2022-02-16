@@ -1,9 +1,15 @@
-import { JavascriptContent } from "../components/javascript/JavascriptContent"
+import { AllJavascriptContent } from "../components/javascript/AllJavascriptContent"
+import { AllReactContent } from "../components/react/state-updates/AllReactContent"
+import { AllStyledContent } from "../components/styled/AllStyledContent"
+import { AllTypescriptContent } from "../components/typescript/AllTypescriptContent"
 
 const All = () => {
   return (
     <>
-      <JavascriptContent />
+      <AllJavascriptContent />
+      <AllReactContent />
+      <AllStyledContent />
+      <AllTypescriptContent />
     </>
   )
 }

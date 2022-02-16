@@ -3,7 +3,7 @@ import type { NextPage } from "next"
 import Link from "next/link"
 // import { StyledProps } from "../components/materialui/props-to-styled/ImportedStyledProps"
 import { StyledProps } from "../components/materialui/props-to-styled/StyledProps"
-import { StateUpdates } from "../components/react/state-updates/stateUpdate"
+import { StateUpdates } from "../components/react/state-updates/StateUpdate"
 
 const Home: NextPage = () => {
   return (

@@ -1,5 +1,5 @@
 import React from "react"
-import { StateUpdates } from "./stateUpdate"
+import { StateUpdates } from "./StateUpdate"
 
 const AllReactContent = () => {
   return (

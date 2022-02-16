@@ -1,7 +1,7 @@
-import { JavascriptContent } from "../components/javascript/JavascriptContent"
+import { AllJavascriptContent } from "../components/javascript/AllJavascriptContent"
 
 const Javascript = () => {
-  return <JavascriptContent />
+  return <AllJavascriptContent />
 }
 
 export default Javascript
