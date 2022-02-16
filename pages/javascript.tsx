@@ -1,15 +1,7 @@
-import React from "react"
-import { NullChecks } from "../components/javascript/NullChecks"
+import { JavascriptContent } from "../components/javascript/JavascriptContent"
 
-const TypeScript = () => {
-  return (
-    <>
-      <h1>Javascript</h1>
-      <h2>Null checks</h2>
-
-      <NullChecks />
-    </>
-  )
+const Javascript = () => {
+  return <JavascriptContent />
 }
 
-export default TypeScript
+export default Javascript

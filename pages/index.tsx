@@ -23,13 +23,6 @@ const Home: NextPage = () => {
 
       <h1>Content</h1>
 
-      <h2>Pass dynamic styled props in Material UI</h2>
-
-      <StyledProps />
-
-      <h2>React</h2>
-      <StateUpdates />
-
       <h2>Todo</h2>
       <ul>
         <li>Designpattern loading</li>
